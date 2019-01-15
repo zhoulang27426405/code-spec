@@ -1,0 +1,115 @@
+/**
+ * author zhoulang
+ * update 2019/01/11
+ * version 1.0
+ *
+ * 移动端基础样式库
+ * 设计原则一：最小子集原则，不提供任何具体的 UI 样式，确保代码体积最小化
+ * 设计原则二：最小干扰原则，尽可能保持最小选择器权重，只用元素选择器，不允许使用class和id，禁止出现!important、通配符
+ * 设计原则三：最大通用原则，只有大概率会被用到的代码才会出现在这里
+ *  常见的reset库（包括我们目前的asset/base.css）会对一些偏僻的标签如 pre、code、fieldset、blockquote、 sup、kbd、abbr进行设定
+ *  基础样式库只考虑通用样式，特殊样式、非常用样式请自行编写
+ * 任何修改请遵循上述原则
+ */
+
+@charset "utf-8";
+
+html {
+  /* height设置100%，参考淘宝首页 */
+  height: 100%;
+  /* http://maxvoltar.com/sandbox/fontsmoothing/ */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 不调节文字大小 */
+  -webkit-text-size-adjust: none;
+  /* 禁止页面文字选择 */
+  -webkit-user-select: none;
+  /* 禁止链接点击出现的半透明灰色背景 */
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  height: 100%;
+  /* https://github.com/AlloyTeam/Mars/blob/master/solutions/font-family.md */
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Helvetica Neue", STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+}
+
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+hr,
+p,
+button,
+input,
+textarea,
+th,
+td {
+  padding: 0;
+  margin: 0;
+}
+
+input,
+select,
+button,
+textarea {
+  /* 消除输入框的原生外观 */
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img,
+a {
+  /* 禁用长按页面时的弹出iOS的菜单 */
+  -webkit-touch-callout: none;
+}
+
+img {
+  vertical-align: middle;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+  font-size: 100%;
+}
+
+i,
+em {
+  font-style: normal;
+}

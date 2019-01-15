@@ -1,0 +1,52 @@
+/**
+ * author zhoulang
+ * update 2019/01/11
+ * version 1.0
+ *
+ * 移动端全局样式库（针对各业务线的UI规范自行更改）
+ * 设计原则一：只允许使用类选择器，class命名方案参考BEM和SMACSS
+ *  $namespace: 'g';
+ *  $element-separator: '_';
+ *  $modifier-separator: '-';
+ *  $state-prefix: 'is-';
+ *  eg: g-btn_primary、g-btn_disabled、g-btn_size-medium、g-btn_color-red、is-active;
+ *  优点（http://getbem.com/introduction/）：
+ *   命名语义化，易懂、易理解
+ *   可重用
+ *   模块化
+ * 设计原则二：参考OOCSS
+ *   结构与样式分离，eg：元素大小和颜色分开
+ *   容器和内容分离，即分离html和css，避免样式依赖html的结构
+ *    <div class="post">
+        <p class=”metadata”>
+          <a>Author name</a>commented on<a>21-02-2010</a>@
+        </p>
+      </div>
+ *   优点：
+ *    可拓展、减少css代码
+ */
+
+.g-btn {
+  display: inline-block;
+  margin: 0;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  transition: 0.1s;
+  &_size-small {
+    padding: 9px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  &_size-medium {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  &_color-red {
+    border-color: #efefef;
+    color: #efefef;
+    background-color: #efefef;
+  }
+}
