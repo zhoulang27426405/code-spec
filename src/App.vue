@@ -1,9 +1,9 @@
 <template>
-  <div id="app" class="app"><HelloWorld /></div>
+  <div id="app" class="app"><hello-world /></div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/hello-world.vue'
 
 export default {
   name: 'app',
