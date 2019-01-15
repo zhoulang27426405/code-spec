@@ -1,11 +1,4 @@
 {
-  "printWidth": 80,
-  "singleQuote": true,
-  "trailingComma": "none",
-  "bracketSpacing": true,
-  "jsxBracketSameLine": true,
   "semi": false,
-  "requirePragma": false,
-  "proseWrap": "preserve",
-  "arrowParens": "avoid"
+  "singleQuote": true
 }

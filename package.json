@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build && vuese gen ",
     "lint": "vue-cli-service lint",
-    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
+    "prettier": "prettier --write **/*.{js,vue,scss}"
   },
   "dependencies": {
     "vue": "^2.5.21"
@@ -29,7 +29,7 @@
   },
   "lint-staged": {
     "*.{js,vue,scss}": [
-      "npm run lintfix",
+      "prettier --write",
       "git add"
     ]
   },
