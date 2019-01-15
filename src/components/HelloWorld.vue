@@ -15,7 +15,17 @@ export default {
     return {}
   },
   methods: {
-    getList() {}
+    // getList(pageIndex) {
+    //   let loadingList = []
+    //   const PAGE_NUMBER = 10
+    //   let isLoading = false
+    //   let TargetState = {
+    //     READING: 1,
+    //     READED: 2,
+    //     APPLIED: 3,
+    //     READY: 4
+    //   }
+    // }
   }
 }
 </script>
