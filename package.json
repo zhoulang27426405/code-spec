@@ -34,7 +34,7 @@
       "git add"
     ],
     "*.{scss}": [
-      "prettier --write",
+      "npm run prettier --write",
       "git add"
     ]
   },
