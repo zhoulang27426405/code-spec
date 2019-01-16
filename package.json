@@ -29,10 +29,6 @@
     "vue-template-compiler": "^2.5.21"
   },
   "lint-staged": {
-    "*.{js,vue}": [
-      "eslint --fix",
-      "git add"
-    ],
     "*.{scss}": [
       "prettier --write",
       "git add"
