@@ -29,7 +29,7 @@
     "vue-template-compiler": "^2.5.21"
   },
   "lint-staged": {
-    "*.{scss}": [
+    "*.scss": [
       "prettier --write",
       "git add"
     ]
