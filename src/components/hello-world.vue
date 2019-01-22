@@ -9,12 +9,15 @@
 export default {
   name: 'HelloWorld',
   props: {
+    // The name of the form, up to 8 characters
     msg: String
   },
   data() {
     return {}
   },
   methods: {
+    // @vuese
+    // Used to get the list
     getList() {
       let obj = { test: 1 }
       let a = ''

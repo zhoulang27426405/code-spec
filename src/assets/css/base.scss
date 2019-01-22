@@ -16,20 +16,18 @@
 
 html {
   /* height设置100%，参考淘宝首页 */
-  height: 100%;
+  min-height: 100%;
   /* http://maxvoltar.com/sandbox/fontsmoothing/ */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* 不调节文字大小 */
   -webkit-text-size-adjust: none;
-  /* 禁止页面文字选择 */
-  -webkit-user-select: none;
   /* 禁止链接点击出现的半透明灰色背景 */
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  height: 100%;
+  min-height: 100%;
   /* https://github.com/AlloyTeam/Mars/blob/master/solutions/font-family.md */
   font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC',
     'Helvetica Neue', STHeiti, 'Microsoft Yahei', Tahoma, Simsun, sans-serif;
