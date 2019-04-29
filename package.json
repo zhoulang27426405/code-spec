@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "tiny": "node tinypng",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build && vuese gen",
     "vuese": "vuese serve --open",
@@ -22,11 +23,15 @@
     "eslint-config-prettier": "^3.4.0",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-vue": "^5.0.0",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.0",
     "node-sass": "^4.11.0",
+    "path": "^0.12.7",
     "prettier": "^1.15.3",
     "sass-loader": "^7.1.0",
+    "url": "^0.11.0",
     "vue-template-compiler": "^2.5.21",
     "vuese": "^1.4.7"
   },
