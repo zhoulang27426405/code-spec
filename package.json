@@ -41,7 +41,7 @@
     "vuese": "^1.4.7"
   },
   "lint-staged": {
-    "*.{js, vue}": [
+    "*.{js,vue}": [
       "eslint --fix",
       "git add"
     ],
