@@ -3,9 +3,11 @@ const path = require('path')
 const https = require('https')
 const { URL } = require('url')
 
-const root = './src/',
-  exts = ['.jpg', '.png'],
-  max = 5200000 // 5MB
+const root = './src/'
+
+const exts = ['.jpg', '.png']
+
+const max = 5200000 // 5MB
 
 const options = {
   method: 'POST',
@@ -68,7 +70,7 @@ function fileUpload(img) {
   })
   req.end()
 }
-//请求图片数据
+// 请求图片数据
 function fileUpdate(imgpath, obj) {
   let options = new URL(obj.output.url)
   let req = https.request(options, res => {
