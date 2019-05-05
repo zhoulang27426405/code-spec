@@ -5,8 +5,8 @@
   "scripts": {
     "tiny": "node tinypng",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && vuese gen",
-    "vuese": "vuese serve --open",
+    "build": "vue-cli-service build",
+    "vuese": "vuese gen && vuese serve --open",
     "lint": "vue-cli-service lint",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "prettier": "prettier --write **/*.{js,vue,scss}"
