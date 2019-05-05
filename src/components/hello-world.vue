@@ -18,7 +18,7 @@ export default {
   methods: {
     // @vuese
     // Used to get the list
-    getList () {
+    getList() {
       let obj = { test: 1 }
       let a = ''
       a = obj.test === 1 ? 1 : 0
