@@ -6,7 +6,8 @@
     "tiny": "node tinypng",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "vuese": "vuese gen && vuese serve --open",
+    "vuedoc": "vuese gen && vuese serve --open",
+    "jsdoc": "jsdoc -c jsdoc.json",
     "lint": "vue-cli-service lint",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "prettier": "prettier --write **/*.{js,vue,scss}"
@@ -19,6 +20,7 @@
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
     "babel-eslint": "^10.0.1",
+    "docdash": "^1.1.0",
     "eslint": "^5.8.0",
     "eslint-config-prettier": "^3.4.0",
     "eslint-config-standard": "^12.0.0",
@@ -31,6 +33,7 @@
     "fs": "0.0.1-security",
     "https": "^1.0.0",
     "husky": "^1.3.1",
+    "jsdoc": "^3.6.1",
     "lint-staged": "^8.1.0",
     "node-sass": "^4.11.0",
     "path": "^0.12.7",
@@ -42,7 +45,7 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "eslint --fix",
+      "eslint --fix --ignore-pattern '/jsdocs/*' --ignore-pattern '/vuedocs/*'",
       "git add"
     ],
     "*.scss": [

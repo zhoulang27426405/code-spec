@@ -1,41 +1,25 @@
 <template>
   <div class="hello">
     <h3>title</h3>
-    <div class="g-iconfont_question g-iconfont">{{ msg }}</div>
-    <demo></demo>
-    <!-- Form header -->
-    <slot name="header">
-      <!-- `<th>title</th>` -->
-      <th>title</th>
-    </slot>
+    <div class="g-iconfont_question g-iconfont"></div>
   </div>
 </template>
 
 <script>
-import demo from './child/demo'
 export default {
-  name: 'HelloWorld',
-  components: {
-    demo
-  },
+  // The name of the form, up to 8 characters
+  name: 'demo',
   props: {
     // The name of the form, up to 8 characters
-    msg: {
-      type: String,
-      required: true,
-      default: 'HelloWorld'
-    }
+    msg: String
   },
   data() {
     return {}
   },
   methods: {
-    /**
-     * @vuese
-     * Used to manually clear the form
-     * @arg The argument is a boolean value representing xxx
-     */
-    getList(params) {
+    // @vuese
+    // Used to get the list
+    getList() {
       let obj = { test: 1 }
       let a = ''
       a = obj.test === 1 ? 1 : 0
@@ -49,10 +33,6 @@ export default {
       //   APPLIED: 3,
       //   READY: 4
       // }
-    },
-    clear() {
-      // Fire when the form is cleared
-      this.$emit('onclear', true)
     }
   }
 }

@@ -1,6 +1,6 @@
 module.exports = {
-  include: ['src/components/*.vue'],
-  outDir: 'doc',
+  include: ['src/components/**/*.vue'],
+  outDir: 'vuedocs',
   genType: 'docute',
   markdownDir: 'markdown',
   title: 'code-spec'
