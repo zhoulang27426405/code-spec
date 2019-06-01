@@ -3,7 +3,7 @@ const path = require('path')
 const https = require('https')
 const { URL } = require('url')
 
-// const root = './src/'
+const root = './src/'
 
 const exts = ['.jpg', '.png']
 
@@ -23,16 +23,17 @@ const options = {
   }
 }
 
-// 压缩比例默认到99%，通过参数可以调节
-let per = (process.argv[2] && process.argv[2].split('=')[1]) || 99
+// 压缩比例默认到99%
+let per = 99
+if (process.argv[2] == '--all') {
+  fileList(root)
+} else {
+  const pics = process.argv.slice(2)
+  pics.map(p => {
+    fileUpload(p)
+  })
+}
 
-const pics = process.argv.slice(2)
-console.log(pics)
-pics.map(p => {
-  fileUpload(p)
-})
-
-// fileList(root)
 // 获取文件列表
 function fileList(folder) {
   fs.readdir(folder, (err, files) => {
