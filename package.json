@@ -54,7 +54,7 @@
       "git add"
     ],
     "*.png": [
-      "tiny",
+      "node tinypng",
       "git add"
     ]
   },
