@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "tiny": "node tinypng --simple",
-    "tinyAll": "node tinypng --per=99",
+    "tiny": "node tinypng",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "vuedoc": "vuese gen && vuese serve --open",
@@ -51,10 +50,6 @@
     ],
     "*.scss": [
       "prettier --write",
-      "git add"
-    ],
-    "*.png": [
-      "tiny",
       "git add"
     ]
   },
