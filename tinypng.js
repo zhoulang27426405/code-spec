@@ -3,7 +3,7 @@ const path = require('path')
 const https = require('https')
 const { URL } = require('url')
 
-const root = './src/'
+// const root = './src/'
 
 const exts = ['.jpg', '.png']
 
@@ -32,7 +32,7 @@ pics.map(p => {
   fileUpload(p)
 })
 
-fileList(root)
+// fileList(root)
 // 获取文件列表
 function fileList(folder) {
   fs.readdir(folder, (err, files) => {
