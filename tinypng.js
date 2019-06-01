@@ -23,8 +23,16 @@ const options = {
   }
 }
 
-fileList(root)
+// 压缩比例默认到99%，通过参数可以调节
+let per = (process.argv[2] && process.argv[2].split('=')[1]) || 99
 
+const pics = process.argv.slice(2)
+console.log(pics)
+pics.map(p => {
+  fileUpload(p)
+})
+
+fileList(root)
 // 获取文件列表
 function fileList(folder) {
   fs.readdir(folder, (err, files) => {
@@ -58,6 +66,7 @@ function fileUpload(img) {
       let obj = JSON.parse(buf.toString())
       if (obj.error) {
         console.log(`[${img}]：压缩失败！报错：${obj.message}`)
+        fileUpload(img)
       } else {
         fileUpdate(img, obj)
       }
@@ -84,10 +93,11 @@ function fileUpdate(imgpath, obj) {
       fs.writeFile(imgpath, body, 'binary', err => {
         if (err) return console.error(err)
         console.log(
-          `[${imgpath}] \n 压缩成功，原始大小-${obj.input.size}，压缩大小-${
-            obj.output.size
-          }，优化比例-${obj.output.ratio}`
+          `[${imgpath}] \n 压缩成功，原始大小----${
+            obj.input.size
+          }，压缩大小----${obj.output.size}，优化比例----${obj.output.ratio}`
         )
+        obj.output.ratio * 100 < per && fileUpload(imgpath)
       })
     })
   })

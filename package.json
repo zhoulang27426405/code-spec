@@ -51,6 +51,10 @@
     "*.scss": [
       "prettier --write",
       "git add"
+    ],
+    "*.png": [
+      "node tinypng",
+      "git add"
     ]
   },
   "husky": {
