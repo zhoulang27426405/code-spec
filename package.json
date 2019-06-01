@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "tiny": "node tinypng --simple",
+    "tiny": "node tinypng",
     "tinyAll": "node tinypng --per=99",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
