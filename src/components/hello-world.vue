@@ -40,11 +40,6 @@ export default {
       let a = ''
       a = obj.test === 1 ? 1 : 0
       console.log(a)
-      this.$axios
-        .$get(this.abnormalDataApi, { params: this.filter })
-        .then(res => {
-          console.log(res)
-        })
       // let loadingList = []
       // const PAGE_NUMBER = 10
       // let isLoading = false
