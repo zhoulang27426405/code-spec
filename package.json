@@ -10,7 +10,7 @@
     "jsdoc": "jsdoc -c jsdoc.json",
     "lint": "vue-cli-service lint",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-    "prettier": "prettier --write **/*.{js,vue,scss}"
+    "prettier": "prettier --write \"**/*.{js,vue,scss}\""
   },
   "dependencies": {
     "vue": "^2.5.21"
