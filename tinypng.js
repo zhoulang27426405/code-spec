@@ -3,12 +3,9 @@ const path = require('path')
 const https = require('https')
 const { URL } = require('url')
 
-const root = './src/'
-
-const exts = ['.jpg', '.png']
-
+const root = './src/' // 根目录
+const exts = ['.jpg', '.png'] // 图片格式
 const max = 5200000 // 5MB
-
 const options = {
   method: 'POST',
   hostname: 'tinypng.com',
@@ -22,66 +19,68 @@ const options = {
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
   }
 }
+const ratio = 90 // 压缩比例
+let imgs = [] // 源图片
 
-// 压缩比例默认到99%
-let per = 99
 if (process.argv[2] == '--all') {
-  fileList(root)
+  getImages(root)
 } else {
-  const pics = process.argv.slice(2)
-  pics.map(p => {
-    fileUpload(p)
-  })
+  imgs = process.argv.slice(2)
 }
 
-// 获取文件列表
-function fileList(folder) {
-  fs.readdir(folder, (err, files) => {
-    if (err) console.error(err)
-    files.forEach(file => {
-      fileFilter(folder + file)
-    })
-  })
+// while(imgs.length > 0) {
+//   let img = imgs.shift()
+//   uploadImage(img)
+// }
+
+optImage()
+function optImage() {
+  if (imgs.length <= 0) return
+  let img = imgs.shift()
+  uploadImage(img)
 }
 
-// 过滤文件格式，返回所有jpg,png图片
-function fileFilter(file) {
-  fs.stat(file, (err, stats) => {
-    if (err) return console.error(err)
+// 获取图片list
+function getImages(dir) {
+  let files = fs.readdirSync(dir)
+  files.forEach(fileName => {
+    let fullname = path.join(dir, fileName)
+    let stats = fs.statSync(fullname)
+    if (stats.isDirectory()) {
+      getImages(fullname + '/')
+    }
     if (
-      // 必须是文件，小于5MB，后缀 jpg||png
       stats.size <= max &&
       stats.isFile() &&
-      exts.includes(path.extname(file))
+      exts.includes(path.extname(fullname))
     ) {
-      fileUpload(file)
+      imgs.push(fullname)
     }
-    if (stats.isDirectory()) fileList(file + '/')
   })
 }
 
-// 异步API,压缩图片
-function fileUpload(img) {
+// 压缩图片
+function uploadImage(img) {
   let req = https.request(options, function(res) {
     res.on('data', buf => {
       let obj = JSON.parse(buf.toString())
       if (obj.error) {
         console.log(`[${img}]：压缩失败！报错：${obj.message}`)
-        fileUpload(img)
+        imgs.push(img)
       } else {
-        fileUpdate(img, obj)
+        downloadImage(img, obj)
       }
     })
   })
-
   req.write(fs.readFileSync(img), 'binary')
   req.on('error', e => {
     console.error(e)
   })
   req.end()
 }
-// 请求图片数据
-function fileUpdate(imgpath, obj) {
+
+// 下载压缩后的图片
+function downloadImage(imgpath, obj) {
   let options = new URL(obj.output.url)
   let req = https.request(options, res => {
     let body = ''
@@ -98,7 +97,8 @@ function fileUpdate(imgpath, obj) {
             obj.input.size
           }，压缩大小----${obj.output.size}，优化比例----${obj.output.ratio}`
         )
-        obj.output.ratio * 100 < per && fileUpload(imgpath)
+        obj.output.ratio * 100 < ratio && imgs.push(imgpath)
+        optImage()
       })
     })
   })
