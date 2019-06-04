@@ -28,11 +28,6 @@ if (process.argv[2] == '--all') {
   imgs = process.argv.slice(2)
 }
 
-// while(imgs.length > 0) {
-//   let img = imgs.shift()
-//   uploadImage(img)
-// }
-
 optImage()
 function optImage() {
   if (imgs.length <= 0) return
@@ -70,6 +65,7 @@ function uploadImage(img) {
       } else {
         downloadImage(img, obj)
       }
+      optImage()
     })
   })
   req.write(fs.readFileSync(img), 'binary')
@@ -98,7 +94,6 @@ function downloadImage(imgpath, obj) {
           }，压缩大小----${obj.output.size}，优化比例----${obj.output.ratio}`
         )
         obj.output.ratio * 100 < ratio && imgs.push(imgpath)
-        optImage()
       })
     })
   })
