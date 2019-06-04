@@ -4,7 +4,7 @@ const https = require('https')
 const { URL } = require('url')
 
 const root = './src/' // 根目录
-const exts = ['.jpg', '.png'] // 图片格式
+const exts = ['.jpg', '.jpeg', '.png'] // 图片格式
 const max = 5200000 // 5MB
 const options = {
   method: 'POST',
