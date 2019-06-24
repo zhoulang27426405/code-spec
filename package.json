@@ -9,8 +9,7 @@
     "vuedoc": "vuese gen && vuese serve --open",
     "jsdoc": "jsdoc -c jsdoc.json",
     "lint": "vue-cli-service lint",
-    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-    "prettier": "prettier --write \"**/*.{js,vue,scss}\""
+    "format": "eslint --fix --ignore-path .gitignore . --ignore-pattern \"/jsdocs/*\" . && prettier --write \"**/*.{less,scss}\""
   },
   "dependencies": {
     "vue": "^2.5.21"
@@ -45,10 +44,10 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "eslint --fix --ignore-pattern '/jsdocs/*' --ignore-pattern '/vuedocs/*'",
+      "eslint --fix --ignore-pattern '/jsdocs/*'",
       "git add"
     ],
-    "*.scss": [
+    "*.{less,scss}": [
       "prettier --write",
       "git add"
     ],

@@ -2,7 +2,7 @@
   <div class="hello">
     <h3>title</h3>
     <div class="g-iconfont_question g-iconfont">{{ msg }}</div>
-    <demo></demo>
+    <demo />
     <!-- Form header -->
     <slot name="header">
       <!-- `<th>title</th>` -->

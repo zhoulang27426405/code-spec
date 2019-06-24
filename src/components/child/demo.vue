@@ -8,10 +8,14 @@
 <script>
 export default {
   // The name of the form, up to 8 characters
-  name: 'demo',
+  name: 'Demo',
   props: {
     // The name of the form, up to 8 characters
-    msg: String
+    msg: {
+      type: String,
+      required: true,
+      default: 'HelloWorld'
+    }
   },
   data() {
     return {}
