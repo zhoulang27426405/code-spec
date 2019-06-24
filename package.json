@@ -9,7 +9,7 @@
     "vuedoc": "vuese gen && vuese serve --open",
     "jsdoc": "jsdoc -c jsdoc.json",
     "lint": "vue-cli-service lint",
-    "format": "eslint --fix --ignore-path .gitignore . --ignore-pattern \"/jsdocs/*\" . && prettier --write \"**/*.{less,scss}\""
+    "format": "eslint --fix --ext .js,.jsx,.vue --ignore-path .gitignore --ignore-pattern \"/jsdocs/*\" . && prettier --write \"**/*.{less,scss}\""
   },
   "dependencies": {
     "vue": "^2.5.21"
