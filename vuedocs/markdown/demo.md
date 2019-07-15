@@ -1,22 +1,22 @@
-# demo
+# Demo
 
 ## Props
 
-<!-- @vuese:demo:props:start -->
+<!-- @vuese:Demo:props:start -->
 |Name|Description|Type|Required|Default|
 |---|---|---|---|---|
-|msg|The name of the form, up to 8 characters|`String`|`false`|-|
+|msg|The name of the form, up to 8 characters|`String`|`true`|'HelloWorld'|
 
-<!-- @vuese:demo:props:end -->
+<!-- @vuese:Demo:props:end -->
 
 
 ## Methods
 
-<!-- @vuese:demo:methods:start -->
+<!-- @vuese:Demo:methods:start -->
 |Method|Description|Parameters|
 |---|---|---|
 |getList|Used to get the list|-|
 
-<!-- @vuese:demo:methods:end -->
+<!-- @vuese:Demo:methods:end -->
 
 
