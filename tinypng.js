@@ -18,7 +18,7 @@ const options = {
 }
 
 const rootDir = './src/' // 根目录
-const exts = ['.jpg', '.jpeg', '.png'] // 图片格式
+const exts = ['.png'] // 图片格式
 const max = 5200000 // 5MB
 const ratio = 90 // 压缩比例
 let imgs = [] // 源图片
@@ -139,7 +139,7 @@ let requestList = []
 let failedList = imgs
 
 let requestTime = 1
-let maxRequestTime = Math.round(failedList.length / 2) + 5
+let maxRequestTime = Math.round(failedList.length / 20) + 5
 let result = []
 
 handlePromise()
