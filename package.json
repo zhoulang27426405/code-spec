@@ -51,7 +51,7 @@
       "prettier --write",
       "git add"
     ],
-    "*.{png}": [
+    "*.png": [
       "node tinypng",
       "git add"
     ]
