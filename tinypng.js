@@ -17,7 +17,6 @@ const options = {
   }
 }
 
-const rootDir = './src/' // 根目录
 const exts = ['.png'] // 图片格式
 const max = 5200000 // 5MB
 const ratio = 90 // 压缩比例
@@ -98,7 +97,7 @@ function downloadImage(imgpath, obj, resolve, reject) {
 
 function handlePromise() {
   if (failedList.length > 0) {
-    requestList = failedList.splice(0, 20)
+    requestList = failedList.splice(0, 2)
     const promises = requestList.map(img => uploadImage(img))
     Promise.all(promises)
       .then(resolve => {
@@ -129,17 +128,23 @@ function handlePromise() {
   }
 }
 
-if (process.argv[2] === '--all') {
-  getImages(rootDir)
-} else {
-  imgs = process.argv.slice(2)
-}
-
 let requestList = []
-let failedList = imgs
+let failedList = []
 
 let requestTime = 1
-let maxRequestTime = Math.round(failedList.length / 20) + 5
+let maxRequestTime = Math.round(failedList.length / 2) + 5
 let result = []
 
-handlePromise()
+const imgPath = process.argv[2].replace(/"$/, '')
+
+if (fs.existsSync(imgPath)) {
+  if (fs.statSync(imgPath).isFile() && exts.includes(path.extname(imgPath))) {
+    imgs = [imgPath]
+  } else if (fs.statSync(imgPath).isDirectory()) {
+    getImages(imgPath)
+  }
+  failedList = imgs
+  handlePromise()
+} else {
+  console.log('请输入要压缩的图片路径')
+}
